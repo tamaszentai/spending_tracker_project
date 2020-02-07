@@ -29,5 +29,11 @@ transaction3 = Transaction.new({
 
 transaction3.save()
 
+merchant1 = Merchant.new({
+  "name" => "Amazon"
+  })
+
+merchant1.save()
+
 binding.pry
 nil
