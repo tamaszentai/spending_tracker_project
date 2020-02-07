@@ -16,6 +16,12 @@ get '/transactions/:id/edit' do
   erb ( :"transactions/edit" )
 end
 
+post '/transactions' do
+  @transaction = Transaction.new (params)
+  @transaction.save()
+  redirect to '/transactions'
+end
+
 post '/transactions/:id' do
   Transaction.new(params).update
   redirect to '/transactions'

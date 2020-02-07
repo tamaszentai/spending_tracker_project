@@ -1,20 +1,53 @@
-<h1>Transactions</h1>
+<h3>Transactions</h3>
+
+  <form method="post" action="/transactions">
+    <label for="amount-field">Amount:</label>
+    <input
+    type="text"
+    name="amount"
+    id="amount-field"
+    />
+
+    <label for="merchant-selection">Select Merchant:</label>
+    <select name="merchant" id="merchant-selection">
+      <option value="ASDA">ASDA</option>
+      <option value="Tesco">Tesco</option>
+      <option value="Playstation Store">Playstation Store</option>
+      <option value="Scottish Power">Scottish Power</option>
+      <option value="Lothian Buses">Lothian Buses</option>
+      <option value="PayPal">PayPal</option>
+    </select>
+
+    <label for="tag-selection">Select Tag:</label>
+    <select name="tag" id="tag-selection">
+      <option value="Groceries">Groceries</option>
+      <option value="Clothing">Clothing</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Bills">Bills</option>
+      <option value="Transport">Transport</option>
+      <option value="Transfers">Transfers</option>
+    </select>
+
+
+    <input type="submit" value="Add new transaction">
+  </form>
+<br>
+<br>
+<br>
+
 
   <% @transactions.each do |transaction| %>
 
-<ul>
-  <li>Amount: <%= transaction.amount %></li>
-  <li>Merchant: <%= transaction.merchant %></li>
-  <li>Tag: <%= transaction.tag %></li>
+<ul class="transactions">
+  <li class="transactions">Amount: <%= transaction.amount %></li>
+  <li class="transactions">Merchant: <%= transaction.merchant %></li>
+  <li class="transactions">Tag: <%= transaction.tag %></li>
 </ul>
 
 <form action="/transactions/<%= transaction.id %>/delete" method="POST">
   <input class="button" type="submit" value="delete" />
 </form>
-
 <form action="/transactions/<%= transaction.id %>/edit" method="GET">
   <input class="button" type="submit" value="edit" />
 </form>
-
-
   <% end %>
