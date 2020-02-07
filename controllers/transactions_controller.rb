@@ -11,6 +11,11 @@ get '/transactions' do
   erb ( :"transactions/index" )
 end
 
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find(params['id'])
+  erb ( :"transactions/edit" )
+end
+
 post '/transactions/:id/delete' do
   transaction = Transaction.find(params['id'])
   transaction.delete
