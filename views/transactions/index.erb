@@ -1,0 +1,11 @@
+<h2>Transactions</h2>
+
+  <% @transactions.each do |transaction| %>
+
+
+    <p>ID: <%= transaction.id %></p>
+    <p>Amount: <%= transaction.amount %></p>
+    <p>Merchant: <%= transaction.merchant %></p>
+    <p>Tag: <%= transaction.tag %></p>
+
+  <% end %>
