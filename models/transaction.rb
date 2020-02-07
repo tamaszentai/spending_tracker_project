@@ -1,8 +1,8 @@
 require_relative('../db/sql_runner')
 
 class Transaction
-
-  attr_reader :id, :amount, :merchant, :tag
+  attr_accessor :amount, :merchant, :tag
+  attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -27,6 +27,22 @@ class Transaction
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
+  end
+
+  def update()
+    sql = "UPDATE transactions
+    SET
+    (
+      amount,
+      merchant,
+      tag
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@amount, @merchant, @tag, @id]
+    SqlRunner.run(sql, values)
   end
 
   def delete()
