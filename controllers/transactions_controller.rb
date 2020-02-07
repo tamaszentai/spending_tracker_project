@@ -10,3 +10,9 @@ get '/transactions' do
   @transactions = Transaction.all
   erb ( :"transactions/index" )
 end
+
+post '/transactions/:id/delete' do
+  transaction = Transaction.find(params['id'])
+  transaction.delete
+  redirect to '/transactions'
+end
