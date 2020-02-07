@@ -3,6 +3,7 @@ require_relative( "../models/merchant.rb" )
 require_relative( "../models/tag.rb" )
 require("pry-byebug")
 
+Transaction.delete_all()
 
 transaction1 = Transaction.new({
   "amount" => "10",
@@ -27,3 +28,6 @@ transaction3 = Transaction.new({
 })
 
 transaction3.save()
+
+binding.pry
+nil
