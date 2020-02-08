@@ -24,3 +24,14 @@ class Tag
     id = result.first['id']
     @id = id
   end
+
+  def self.all()
+    sql = "SELECT * FROM tags"
+    tag_data = SqlRunner.run(sql)
+    tags = map_items(tag_data)
+    return merchants
+  end
+
+  def self.map_items(tag_data)
+    return tag_data.map { |tag| Tag.new(tag) }
+  end
