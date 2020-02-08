@@ -35,4 +35,16 @@ class Tag
   def self.map_items(tag_data)
     return tag_data.map { |tag| Tag.new(tag) }
   end
+
+  def delete()
+    sql = "DELETE FROM tags
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM tags"
+    SqlRunner.run(sql)
+  end
 end
