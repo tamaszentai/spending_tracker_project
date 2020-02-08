@@ -25,10 +25,23 @@ class Merchant
     @id = id
   end
 
+  def self.all()
+    sql = "SELECT * FROM merchants"
+    merchant_data = SqlRunner.run(sql)
+    merchants = map_items(merchant_data)
+    return merchants
+  end
+
+  def self.map_items(merchant_data)
+    return merchant_data.map { |merchant| Merchant.new(merchant) }
+  end
+
   def delete()
     sql = "DELETE FROM merchants
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+
 end
