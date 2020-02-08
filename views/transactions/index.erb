@@ -34,18 +34,26 @@
 <br>
 
 
-  <% @transactions.each do |transaction| %>
 
-<ul class="transactions">
-  <li class="transactions">Amount: £<%= transaction.amount %></li>
-  <li class="transactions">Merchant: <%= transaction.merchant.name %></li>
-  <li class="transactions">Tag: <%= transaction.tag.name %></li>
-</ul>
-
-<form action="/transactions/<%= transaction.id %>/delete" method="POST">
-  <input class="button" type="submit" value="delete" />
-</form>
-<form action="/transactions/<%= transaction.id %>/edit" method="GET">
-  <input class="button" type="submit" value="edit" />
-</form>
+<% @transactions.each do |transaction| %>
+  <table>
+    <tr>
+      <th>Amount</th>
+      <th>Merchant</th>
+      <th>Tag</th>
+    </tr>
+    <tr>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.merchant.name %></td>
+      <td><%= transaction.tag.name %></td>
+      <td><form action="/transactions/<%= transaction.id %>/delete" method="POST">
+            <input class="button" type="submit" value="delete" />
+          </form>
+      </td>
+      <td><form action="/transactions/<%= transaction.id %>/edit" method="GET">
+            <input class="button" type="submit" value="edit" />
+          </form>
+      </td>
+    </tr>
+  </table>
   <% end %>

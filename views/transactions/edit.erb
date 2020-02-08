@@ -7,20 +7,21 @@ id="amount-field"
 value="<%= @transaction.amount %>"
 />
 
+
 <label for="merchant-field">Merchant:</label>
 <input
 type="text"
-name="merchant"
+name="merchant_id"
 id="merchant-field"
-value="<%= @transaction.merchant %>"
+value="<%= @transaction.merchant.name %>"
 />
 
 <label for="tag-field">Tag:</label>
 <input
 type="text"
-name="tag"
+name="tag_id"
 id="tag-field"
-value="<%= @transaction.tag %>"
+value="<%= @transaction.tag.name %>"
 />
 
 <input type='submit' value="Edit Transaction">
