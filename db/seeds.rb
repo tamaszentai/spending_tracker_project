@@ -35,5 +35,35 @@ merchant1 = Merchant.new({
 
 merchant1.save()
 
+merchant2 = Merchant.new({
+  "name" => "Tesco"
+  })
+
+merchant2.save()
+
+merchant3 = Merchant.new({
+  "name" => "PayPal"
+  })
+
+merchant3.save()
+
+tag1 = Tag.new({
+  "name" => "Groceries"
+  })
+
+tag1.save()
+
+tag2 = Tag.new({
+  "name" => "Bills"
+  })
+
+tag2.save()
+
+tag3 = Tag.new({
+  "name" => "Entertainment"
+  })
+
+tag3.save()
+
 binding.pry
 nil
