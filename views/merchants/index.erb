@@ -1,9 +1,23 @@
 <h3>Merchant manager</h3>
 
+<form method="post" action="/merchants">
+  <label for="merchant-field">New merchant:</label>
+  <input
+  type="text"
+  name="name"
+  id="merchant-field"
+  />
+<input type="submit" value="Add new merchant">
+</form>
+
 <% @merchants.each do |merchant| %>
 
 <ul class="merchants">
   <li class="merchants">Merchant name: <%= merchant.name %></li>
 </ul>
+
+<form action="/merchants/<%= merchant.id %>/delete" method="POST">
+      <input class="button" type="submit" value="delete" />
+    </form>
 
 <% end %>
