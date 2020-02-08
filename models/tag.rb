@@ -35,3 +35,4 @@ class Tag
   def self.map_items(tag_data)
     return tag_data.map { |tag| Tag.new(tag) }
   end
+end
