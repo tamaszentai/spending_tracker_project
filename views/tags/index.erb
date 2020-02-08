@@ -1,1 +1,6 @@
 <h3>Tag Manager</h3>
+<% @tags.each do |tag| %>
+<ul class="tags">
+  <li class="tags">Tag name: <%= tag.name %></li>
+</ul>
+<% end %>
