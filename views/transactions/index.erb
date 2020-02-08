@@ -8,25 +8,23 @@
     id="amount-field"
     />
 
-    <label for="merchant-selection">Select Merchant:</label>
-    <select name="merchant" id="merchant-selection">
-      <option value="ASDA">ASDA</option>
-      <option value="Tesco">Tesco</option>
-      <option value="Playstation Store">Playstation Store</option>
-      <option value="Scottish Power">Scottish Power</option>
-      <option value="Lothian Buses">Lothian Buses</option>
-      <option value="PayPal">PayPal</option>
-    </select>
+    <label>
+    Select a merchant:
+      <select name="merchant_id">
+        <% for merchant in @merchants %>
+        <option value="<%= merchant.id %>"><%= merchant.name %></option>
+        <% end %>
+      </select>
+    </label>
 
-    <label for="tag-selection">Select Tag:</label>
-    <select name="tag" id="tag-selection">
-      <option value="Groceries">Groceries</option>
-      <option value="Clothing">Clothing</option>
-      <option value="Entertainment">Entertainment</option>
-      <option value="Bills">Bills</option>
-      <option value="Transport">Transport</option>
-      <option value="Transfers">Transfers</option>
-    </select>
+    <label>
+    Select a tag:
+      <select name="tag_id">
+        <% for tag in @tags %>
+        <option value="<%= tag.id %>"><%= tag.name %></option>
+        <% end %>
+      </select>
+    </label>
 
 
     <input type="submit" value="Add new transaction">
@@ -39,9 +37,9 @@
   <% @transactions.each do |transaction| %>
 
 <ul class="transactions">
-  <li class="transactions">Amount: <%= transaction.amount %></li>
-  <li class="transactions">Merchant: <%= transaction.merchant %></li>
-  <li class="transactions">Tag: <%= transaction.tag %></li>
+  <li class="transactions">Amount: £<%= transaction.amount %></li>
+  <li class="transactions">Merchant: <%= transaction.merchant.name %></li>
+  <li class="transactions">Tag: <%= transaction.tag.name %></li>
 </ul>
 
 <form action="/transactions/<%= transaction.id %>/delete" method="POST">

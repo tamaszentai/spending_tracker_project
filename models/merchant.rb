@@ -36,6 +36,14 @@ class Merchant
     return merchant_data.map { |merchant| Merchant.new(merchant) }
   end
 
+  def self.find( id )
+    sql = "SELECT * FROM merchants
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Merchant.new( results.first )
+  end
+
   def delete()
     sql = "DELETE FROM merchants
     WHERE id = $1"
@@ -47,6 +55,5 @@ class Merchant
     sql = "DELETE FROM merchants"
     SqlRunner.run(sql)
   end
-
 
 end

@@ -36,6 +36,14 @@ class Tag
     return tag_data.map { |tag| Tag.new(tag) }
   end
 
+  def self.find( id )
+    sql = "SELECT * FROM tags
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Tag.new( results.first )
+  end
+
   def delete()
     sql = "DELETE FROM tags
     WHERE id = $1"
@@ -47,4 +55,5 @@ class Tag
     sql = "DELETE FROM tags"
     SqlRunner.run(sql)
   end
+
 end

@@ -7,29 +7,6 @@ Transaction.delete_all()
 Merchant.delete_all()
 Tag.delete_all()
 
-transaction1 = Transaction.new({
-  "amount" => "10",
-  "merchant" => "ASDA",
-  "tag" => "Groceries"
-})
-
-transaction1.save()
-
-transaction2 = Transaction.new({
-  "amount" => "40",
-  "merchant" => "Sports Direct",
-  "tag" => "Clothing"
-})
-
-transaction2.save()
-
-transaction3 = Transaction.new({
-  "amount" => "60",
-  "merchant" => "Playstation Store",
-  "tag" => "Entertainment"
-})
-
-transaction3.save()
 
 merchant1 = Merchant.new({
   "name" => "Amazon"
@@ -66,6 +43,14 @@ tag3 = Tag.new({
   })
 
 tag3.save()
+
+transaction1 = Transaction.new({
+  "amount" => "10",
+  "merchant_id" => merchant1.id,
+  "tag_id" => tag1.id
+})
+
+transaction1.save()
 
 binding.pry
 nil
