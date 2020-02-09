@@ -7,13 +7,16 @@ id="amount-field"
 value="<%= @transaction.amount %>"
 />
 
-<label for="merchant-field">Merchant:</label>
-<input
-type="text"
-name="merchant.name"
-id="merchant-field"
-value="<%= @transaction.merchant.name %>"
-/>
+<label for="merchant_select">Select new merchant:</label>
+      <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id  %>">
+        <% @merchants.each do |merchant| %>
+          <% if merchant.id == @transaction.merchant_id %>
+            <option value=<%= merchant.id %> selected><%= merchant.name %></option>
+          <% else %>
+            <option value=<%= merchant.id %>><%= merchant.name %></option>
+          <% end %>
+        <% end %>
+      </select>
 
 <label for="tag-field">Tag:</label>
 <input

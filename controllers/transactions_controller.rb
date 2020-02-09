@@ -8,14 +8,16 @@ also_reload( '../models/*' )
 
 get '/transactions' do
   @transactions = Transaction.all
-  @total = Transaction.sum
   @merchants = Merchant.all
   @tags = Tag.all
+  @total = Transaction.sum
   erb ( :"transactions/index" )
 end
 
 get '/transactions/:id/edit' do
   @transaction = Transaction.find(params['id'])
+  @merchants = Merchant.all
+  @tags = Tag.all
   erb ( :"transactions/edit" )
 end
 
