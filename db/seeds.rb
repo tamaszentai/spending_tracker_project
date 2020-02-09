@@ -52,5 +52,21 @@ transaction1 = Transaction.new({
 
 transaction1.save()
 
+transaction2 = Transaction.new({
+  "amount" => "20",
+  "merchant_id" => merchant2.id,
+  "tag_id" => tag2.id
+})
+
+transaction2.save()
+
+transaction3 = Transaction.new({
+  "amount" => "30",
+  "merchant_id" => merchant3.id,
+  "tag_id" => tag3.id
+})
+
+transaction3.save()
+
 binding.pry
 nil
