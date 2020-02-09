@@ -1,60 +1,61 @@
 <h3>Transactions</h3>
 
-
-<h2>TOTAL SPENT: <%= @total%> </h2>
-
-  <form method="post" action="/transactions">
-    <label for="amount-field">Amount:</label>
-    <input
-    type="text"
-    name="amount"
-    id="amount-field"
-    />
-
-    <label for="merchant-select">
+<form method="post" action="/transactions">
+  <label for="merchant-select">
     Select a merchant:
-      <select name="merchant_id">
-        <% for merchant in @merchants %>
-        <option value="<%= merchant.id %>"><%= merchant.name %></option>
-        <% end %>
-      </select>
-    </label>
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </label>
 
-    <label for="tag-select">
+  <label for="tag-select">
     Select a tag:
-      <select name="tag_id">
-        <% for tag in @tags %>
-        <option value="<%= tag.id %>"><%= tag.name %></option>
-        <% end %>
-      </select>
-    </label>
-    <input type="submit" value="Add new transaction">
-  </form>
+    <select name="tag_id">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>"><%= tag.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <label for="amount-field">Amount:</label>
+  <input
+  type="text"
+  name="amount"
+  id="amount-field"
+  />
+  <input type="submit" value="Add new transaction">
+</form>
 <br>
 <br>
 <br>
-
-
-
+<table id="transactions">
+  <tr>
+    <th>TOTAL SPENT:</th>
+    <th>£<%= @total%></th>
+  </tr>
+  <tr>
+    <th>Merchant</th>
+    <th>Tag</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+  </tr>
 <% @transactions.each do |transaction| %>
-  <table>
-    <tr>
-      <th>Amount</th>
-      <th>Merchant</th>
-      <th>Tag</th>
-    </tr>
-    <tr>
-      <td><%= transaction.amount %></td>
-      <td><%= transaction.merchant.name %></td>
-      <td><%= transaction.tag.name %></td>
-      <td><form action="/transactions/<%= transaction.id %>/delete" method="POST">
-            <input class="button" type="submit" value="delete" />
-          </form>
-      </td>
-      <td><form action="/transactions/<%= transaction.id %>/edit" method="GET">
-            <input class="button" type="submit" value="edit" />
-          </form>
-      </td>
-    </tr>
-  </table>
+  <tr>
+    <td><%= transaction.merchant.name %></td>
+    <td><%= transaction.tag.name %></td>
+    <td> £<%= transaction.amount %></td>
+    <td>
+      <form action="/transactions/<%= transaction.id %>/edit" method="GET">
+        <input class="button" type="submit" value="edit" />
+      </form>
+    </td>
+    <td>
+      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+        <input class="button" type="submit" value="delete" />
+      </form>
+    </td>
+  </tr>
   <% end %>
+</table>
