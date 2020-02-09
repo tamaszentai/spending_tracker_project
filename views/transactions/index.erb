@@ -1,4 +1,8 @@
 <h3>Transactions</h3>
+<div class="transactionsbuttons">
+  <button class="button" style="vertical-align:middle"><span>Add New Transaction </span></button>
+  <button class="button" style="vertical-align:middle"><span>Delete All </span></button>
+</div>
 
 <form method="post" action="/transactions">
   <label for="merchant-select">
@@ -29,6 +33,9 @@
 <br>
 <br>
 <br>
+<div class="table">
+
+
 <table id="transactions">
   <tr>
     <th>TOTAL SPENT:</th>
@@ -48,14 +55,15 @@
     <td> £<%= transaction.amount %></td>
     <td>
       <form action="/transactions/<%= transaction.id %>/edit" method="GET">
-        <input class="button" type="submit" value="edit" />
+        <input class="button-table" type="submit" value="edit" />
       </form>
     </td>
     <td>
       <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-        <input class="button" type="submit" value="delete" />
+        <input class="button-table" type="submit" value="delete" />
       </form>
     </td>
   </tr>
   <% end %>
 </table>
+</div>
