@@ -1,6 +1,33 @@
 <h3>Tag Manager</h3>
+
+<form method="post" action="/tags">
+<label for="tag-field">New tag:</label>
+<input
+type="text"
+name="name"
+id="tag-field"
+/>
+<input type="submit" value="Add new tag">
+</form>
+
 <% @tags.each do |tag| %>
-<ul class="tags">
-  <li class="tags">Tag name: <%= tag.name %></li>
-</ul>
+<table>
+<tr>
+  <th>Tag name:</th>
+</tr>
+<td>
+  <%= tag.name %>
+</td>
+<td>
+  <form action="/tags/<%= tag.id %>/edit" method="GET">
+    <input class="button" type="submit" value="edit" />
+  </form>
+</td>
+<td>
+  <form action="/tags/<%= tag.id %>/delete" method="POST">
+        <input class="button" type="submit" value="delete" />
+      </form>
+</td>
+
+</table>
 <% end %>

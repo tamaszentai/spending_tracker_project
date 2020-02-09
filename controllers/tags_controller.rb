@@ -8,3 +8,25 @@ get '/tags' do
   @tags = Tag.all
   erb ( :"tags/index" )
 end
+
+post '/tags' do
+  @tag = Tag.new (params)
+  @tag.save()
+  redirect to '/tags'
+end
+
+get '/tags/:id/edit' do
+  @tag = Tag.find(params['id'])
+  erb ( :"tags/edit" )
+end
+
+post '/tags/:id' do
+  Tag.new(params).update
+  redirect to '/tags'
+end
+
+post '/tags/:id/delete' do
+  @tag = Tag.find(params['id'])
+  @tag.delete
+  redirect to '/tags'
+end
