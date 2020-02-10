@@ -1,4 +1,5 @@
 require( 'sinatra' )
+require( 'pry' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/transaction.rb' )
 require_relative( '../models/merchant.rb' )
@@ -12,6 +13,13 @@ get '/transactions' do
   @tags = Tag.all
   @total = Transaction.sum
   erb ( :"transactions/index" )
+end
+
+get '/transactions/new' do
+  @transactions = Transaction.all
+  @merchants = Merchant.all
+  @tags = Tag.all
+  erb ( :"transactions/new" )
 end
 
 get '/transactions/:id/edit' do

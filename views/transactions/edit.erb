@@ -8,7 +8,7 @@ value="<%= @transaction.amount %>"
 />
 
 <label for="merchant_select">Select new merchant:</label>
-      <select name="merchant_id" id="merchant_select" selected="<%= @transaction.merchant_id  %>">
+      <select name="merchant_id" id="merchant_select">
         <% @merchants.each do |merchant| %>
           <% if merchant.id == @transaction.merchant_id %>
               <option value=<%= merchant.id %> selected><%= merchant.name %></option>
@@ -29,5 +29,5 @@ value="<%= @transaction.amount %>"
         <% end %>
       </select>
 
-<input type='submit' value="Edit Transaction">
+<input class="button-table-edit" type="submit" value="Edit Transaction" />
 </form>

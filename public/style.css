@@ -7,28 +7,34 @@ body {
 header {
   margin-top: -4em;
   background-image: url(money_header.png);
-  background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
-  position: static;
-  width: 100%;
-  height: 15em;
+  width: auto;
+  height: auto;
 }
 
 h1 {
-  font-family: 'Luckiest Guy', cursive;
   padding-top: 1em;
+  font-family: 'Luckiest Guy', cursive;
   position: static;
   font-size: 600%;
   color: black;
   text-shadow: 5px 5px #ff0000;
   text-align: center;
 }
+h2 {
+  font-size: 2em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#indexh2 {
+  text-align: center;
+  font-size: 4em;
+}
 
 nav {
-  position: static;
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-top: -4em;
 }
 
 h3 {
@@ -36,6 +42,7 @@ h3 {
 }
 
 nav ul {
+  position: sticky;
   list-style-type: none;
   padding: 0;
   overflow: hidden;
@@ -44,6 +51,7 @@ nav ul {
 
 nav li {
   float: left;
+
 }
 
 nav li a {
@@ -57,8 +65,29 @@ nav li a {
 nav li a:hover {
   background-color: #5a4330;
 }
-.table {
-margin: 2em;
+
+#totalspent {
+  float: right;
+  display: block;
+  color: salmon;
+  font
+  text-align: center;
+  padding: 14px 200px;
+  text-shadow: 1px 1px black;
+  border-color: black;
+}
+#transactionsbuttons {
+  padding: 1em;
+  display: block;
+}
+#transactionsbuttons form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transactionstable {
+width: auto;
 }
 
 #transactions {
@@ -76,29 +105,112 @@ margin: 2em;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: black;
+  background-color: #8d6d52;
   color: white;
 }
 
 .button {
   display: inline-block;
-  padding: 15px 25px;
-  font-size: 1em;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
+  border-radius: 4px;
+  background-color: #8d6d52;
   border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 15em;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
-.button:hover {background-color: #3e8e41}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.button span:after {
+  content: '+';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button-table-delete {
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #8d6b52;
+}
+.button-table-delete:hover {
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+.button-table-delete:active {
+	position:relative;
+	top:1px;
+}
+
+.button-table-edit {
+	box-shadow:inset 0px 1px 0px 0px #9fb4f2;
+	background:linear-gradient(to bottom, #344661 5%, #4573a8 100%);
+	background-color:#344661;
+	border-radius:3px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.button-table-edit:hover {
+	background:linear-gradient(to bottom, #4573a8 5%, #344661 100%);
+	background-color:#4573a8;
+}
+.button-table-edit:active {
+	position:relative;
+	top:1px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

@@ -1,4 +1,4 @@
-<h3>Merchant manager</h3>
+<h2>Merchant manager</h2>
 
 <form method="post" action="/merchants">
   <label for="merchant-field">New merchant:</label>
@@ -10,24 +10,28 @@
 <input type="submit" value="Add new merchant">
 </form>
 
-<% @merchants.each do |merchant| %>
-<table>
+
+<table id="transactions">
   <tr>
     <th>Merchant name:</th>
+    <th></th>
+    <th></th>
   </tr>
+  <% @merchants.each do |merchant| %>
+  <tr>
   <td>
     <%= merchant.name %>
   </td>
   <td>
     <form action="/merchants/<%= merchant.id %>/edit" method="GET">
-      <input class="button" type="submit" value="edit" />
+      <input class="button-table-edit" type="submit" value="edit" />
     </form>
   </td>
   <td>
     <form action="/merchants/<%= merchant.id %>/delete" method="POST">
-          <input class="button" type="submit" value="delete" />
-        </form>
+      <input class="button-table-delete" type="submit" value="delete" />
+    </form>
   </td>
-
+  </tr>
+  <% end %>
 </table>
-<% end %>

@@ -1,4 +1,4 @@
-<h3>Tag Manager</h3>
+<h2>Tag Manager</h2>
 
 <form method="post" action="/tags">
 <label for="tag-field">New tag:</label>
@@ -10,24 +10,28 @@ id="tag-field"
 <input type="submit" value="Add new tag">
 </form>
 
-<% @tags.each do |tag| %>
-<table>
+
+<table id="transactions">
 <tr>
   <th>Tag name:</th>
+  <th></th>
+  <th></th>
 </tr>
+<% @tags.each do |tag| %>
+<tr>
 <td>
   <%= tag.name %>
 </td>
 <td>
   <form action="/tags/<%= tag.id %>/edit" method="GET">
-    <input class="button" type="submit" value="edit" />
+    <input class="button-table-edit" type="submit" value="edit" />
   </form>
 </td>
 <td>
   <form action="/tags/<%= tag.id %>/delete" method="POST">
-        <input class="button" type="submit" value="delete" />
+        <input class="button-table-delete" type="submit" value="delete" />
       </form>
 </td>
-
-</table>
+</tr>
 <% end %>
+</table>

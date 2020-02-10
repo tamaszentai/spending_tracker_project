@@ -1,46 +1,13 @@
-<h3>Transactions</h3>
-<div class="transactionsbuttons">
-  <button class="button" style="vertical-align:middle"><span>Add New Transaction </span></button>
-  <button class="button" style="vertical-align:middle"><span>Delete All </span></button>
-</div>
+<h2>Transaction manager</h2>
 
-<form method="post" action="/transactions">
-  <label for="merchant-select">
-    Select a merchant:
-    <select name="merchant_id">
-      <% for merchant in @merchants %>
-      <option value="<%= merchant.id %>"><%= merchant.name %></option>
-      <% end %>
-    </select>
-  </label>
+  <div id="transactionsbuttons">
+      <form action="/transactions/new" method="GET">
+        <button class="button" type ="submit" style="vertical-align:middle"><span>Add new transaction </span></button>
+      </form>
+  </div>
 
-  <label for="tag-select">
-    Select a tag:
-    <select name="tag_id">
-      <% for tag in @tags %>
-      <option value="<%= tag.id %>"><%= tag.name %></option>
-      <% end %>
-    </select>
-  </label>
-  <label for="amount-field">Amount:</label>
-  <input
-  type="text"
-  name="amount"
-  id="amount-field"
-  />
-  <input type="submit" value="Add new transaction">
-</form>
-<br>
-<br>
-<br>
-<div class="table">
-
-
+<div class="transactionstable">
 <table id="transactions">
-  <tr>
-    <th>TOTAL SPENT:</th>
-    <th>£<%= @total%></th>
-  </tr>
   <tr>
     <th>Merchant</th>
     <th>Tag</th>
@@ -55,12 +22,12 @@
     <td> £<%= transaction.amount %></td>
     <td>
       <form action="/transactions/<%= transaction.id %>/edit" method="GET">
-        <input class="button-table" type="submit" value="edit" />
+        <input class="button-table-edit" type="submit" value="edit" />
       </form>
     </td>
     <td>
       <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-        <input class="button-table" type="submit" value="delete" />
+        <input class="button-table-delete" type="submit" value="delete" />
       </form>
     </td>
   </tr>

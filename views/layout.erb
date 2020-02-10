@@ -6,21 +6,24 @@
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet">
-
   </head>
   <body>
-
     <header>
       <h1>Spending Tracker</h1>
     </header>
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/transactions">Show all transactions</a></li>
+      <li><a href="/transactions">Transaction manager</a></li>
       <li><a href="/merchants">Merchant manager</a></li>
       <li><a href="/tags">Tag manager</a></li>
+      <li id="totalspent">TOTAL SPENT: £<%= @total%></li>
     </ul>
   </nav>
+<content>
+
+
 <%= yield %>
+</content>
   </body>
 </html>
