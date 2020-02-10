@@ -18,7 +18,7 @@ value="<%= @transaction.amount %>"
         <% end %>
       </select>
 
-<label for="tag_select">Select new tag:</label>
+<label for="tag_select">Select new category:</label>
       <select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
         <% @tags.each do |tag| %>
           <% if tag.id == @transaction.tag_id %>
