@@ -52,6 +52,22 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def merchant()
+    sql = "SELECT * FROM merchants
+    WHERE id = $1"
+    values = [@merchant_id]
+    results = SqlRunner.run( sql, values )
+    return Merchant.new( results.first )
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags
+    WHERE id = $1"
+    values = [@tag_id]
+    results = SqlRunner.run( sql, values )
+    return Tag.new( results.first )
+  end
+
   def self.delete_all()
     sql = "DELETE FROM transactions"
     SqlRunner.run(sql)
@@ -75,22 +91,6 @@ class Transaction
     result = SqlRunner.run(sql, values).first
     transaction = Transaction.new(result)
     return transaction
-  end
-
-  def merchant()
-    sql = "SELECT * FROM merchants
-    WHERE id = $1"
-    values = [@merchant_id]
-    results = SqlRunner.run( sql, values )
-    return Merchant.new( results.first )
-  end
-
-  def tag()
-    sql = "SELECT * FROM tags
-    WHERE id = $1"
-    values = [@tag_id]
-    results = SqlRunner.run( sql, values )
-    return Tag.new( results.first )
   end
 
   def self.sum()

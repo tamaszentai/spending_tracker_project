@@ -1,15 +1,10 @@
-<h2>Tag Manager</h2>
+<h2>Category Manager</h2>
 
-<form method="post" action="/tags">
-<label for="tag-field">New tag:</label>
-<input
-type="text"
-name="name"
-id="tag-field"
-/>
-<input type="submit" value="Add new tag">
-</form>
-
+<div id="transactionsbuttons">
+    <form action="/tags/new" method="GET">
+      <button class="button" type ="submit" style="vertical-align:middle"><span>Add new category </span></button>
+    </form>
+</div>
 
 <table id="transactions">
 <tr>

@@ -9,6 +9,11 @@ get '/merchants' do
   erb ( :"merchants/index" )
 end
 
+get '/merchants/new' do
+  @merchants = Merchant.all
+  erb ( :"merchants/new" )
+end
+
 post '/merchants' do
   @merchant = Merchant.new (params)
   @merchant.save()
