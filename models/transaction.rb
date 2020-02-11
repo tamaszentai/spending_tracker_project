@@ -6,6 +6,7 @@ class Transaction
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
+    @time_stamp = options['time_stamp']
     @amount = options['amount'].to_i
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
@@ -14,16 +15,17 @@ class Transaction
   def save()
     sql = "INSERT INTO transactions
     (
+      time_stamp,
       amount,
       merchant_id,
       tag_id
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
     RETURNING id"
-    values = [@amount, @merchant_id, @tag_id]
+    values = [@time_stamp, @amount, @merchant_id, @tag_id]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -33,15 +35,16 @@ class Transaction
     sql = "UPDATE transactions
     SET
     (
+      time_stamp,
       amount,
       merchant_id,
       tag_id
     ) =
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
-    WHERE id = $4"
-    values = [@amount, @merchant_id, @tag_id, @id]
+    WHERE id = $5"
+    values = [@time_stamp, @amount, @merchant_id, @tag_id, @id]
     SqlRunner.run(sql, values)
   end
 

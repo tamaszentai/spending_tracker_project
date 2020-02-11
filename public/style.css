@@ -43,7 +43,8 @@ h3 {
   text-align: center;
 }
 
-nav ul {
+ul {
+  top: 0;
   position: sticky;
   list-style-type: none;
   padding: 0;
@@ -51,12 +52,12 @@ nav ul {
   background-color: #8d6d52;
 }
 
-nav li {
+li {
   float: left;
 
 }
 
-nav li a {
+li a {
   display: block;
   color: white;
   text-align: center;
@@ -64,7 +65,7 @@ nav li a {
   text-decoration: none;
 }
 
-nav li a:hover {
+li a:hover {
   background-color: #5a4330;
 }
 

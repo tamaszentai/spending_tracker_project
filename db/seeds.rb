@@ -70,6 +70,7 @@ tag5 = Tag.new({
 tag5.save()
 
 transaction1 = Transaction.new({
+  "time_stamp" => "2020-02-11",
   "amount" => "10",
   "merchant_id" => merchant1.id,
   "tag_id" => tag4.id
