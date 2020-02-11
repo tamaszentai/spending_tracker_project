@@ -1,7 +1,9 @@
 body {
+  margin: 0px;
   background-color: #cca483;
   color: black;
   font-family: 'Roboto Condensed', sans-serif;
+
 }
 
 header {
