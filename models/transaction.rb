@@ -1,12 +1,12 @@
 require_relative('../db/sql_runner')
 
 class Transaction
-  attr_accessor :amount, :merchant_id, :tag_id
+  attr_accessor :date_stamp, :amount, :merchant_id, :tag_id
   attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @time_stamp = options['time_stamp']
+    @date_stamp = options['date_stamp']
     @amount = options['amount'].to_i
     @merchant_id = options['merchant_id'].to_i
     @tag_id = options['tag_id'].to_i
@@ -15,7 +15,7 @@ class Transaction
   def save()
     sql = "INSERT INTO transactions
     (
-      time_stamp,
+      date_stamp,
       amount,
       merchant_id,
       tag_id
@@ -25,7 +25,7 @@ class Transaction
       $1, $2, $3, $4
     )
     RETURNING id"
-    values = [@time_stamp, @amount, @merchant_id, @tag_id]
+    values = [@date_stamp, @amount, @merchant_id, @tag_id]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -35,7 +35,7 @@ class Transaction
     sql = "UPDATE transactions
     SET
     (
-      time_stamp,
+      date_stamp,
       amount,
       merchant_id,
       tag_id
@@ -44,7 +44,7 @@ class Transaction
       $1, $2, $3, $4
     )
     WHERE id = $5"
-    values = [@time_stamp, @amount, @merchant_id, @tag_id, @id]
+    values = [@date_stamp, @amount, @merchant_id, @tag_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -102,5 +102,9 @@ class Transaction
     sum_data = SqlRunner.run(sql)
     sum = sum_data[0]
     return sum["sum"].to_i
+  end
+
+  def self.sort_by_date(array_of_transactions)
+    return array_of_transactions.sort_by {|transaction| transaction.date_stamp}
   end
 end

@@ -8,7 +8,8 @@ also_reload( '../models/*' )
 
 
 get '/transactions' do
-  @transactions = Transaction.all
+  transactions = Transaction.all
+  @transactions = Transaction.sort_by_date(transactions)
   @merchants = Merchant.all
   @tags = Tag.all
   @total = Transaction.sum

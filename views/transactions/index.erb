@@ -1,4 +1,5 @@
-<h2>Transaction Manager</h2>
+<h2>Transactions</h2>
+<p>You've already spent: £<%= @total %></p>
 
   <div id="transactionsbuttons">
       <form action="/transactions/new" method="GET">
@@ -9,6 +10,7 @@
 <div class="transactionstable">
 <table id="transactions">
   <tr>
+    <th>Date</th>
     <th>Merchant</th>
     <th>Category</th>
     <th>Amount</th>
@@ -17,6 +19,7 @@
   </tr>
 <% @transactions.each do |transaction| %>
   <tr>
+    <td><%= transaction.date_stamp %></td>
     <td><%= transaction.merchant.name %></td>
     <td><%= transaction.tag.name %></td>
     <td> £<%= transaction.amount %></td>

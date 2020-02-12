@@ -8,26 +8,26 @@ value="<%= @transaction.amount %>"
 />
 
 <label for="merchant_select">Select new merchant:</label>
-      <select name="merchant_id" id="merchant_select">
-        <% @merchants.each do |merchant| %>
-          <% if merchant.id == @transaction.merchant_id %>
-              <option value=<%= merchant.id %> selected><%= merchant.name %></option>
-          <% else %>
-              <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
-          <% end %>
-        <% end %>
-      </select>
+<select name="merchant_id" id="merchant_select">
+  <% @merchants.each do |merchant| %>
+  <% if merchant.id == @transaction.merchant_id %>
+  <option value=<%= merchant.id %> selected><%= merchant.name %></option>
+  <% else %>
+  <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
+  <% end %>
+  <% end %>
+</select>
 
 <label for="tag_select">Select new category:</label>
-      <select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
-        <% @tags.each do |tag| %>
-          <% if tag.id == @transaction.tag_id %>
-              <option value=<%= tag.id %> selected><%= tag.name %></option>
-          <% else %>
-              <option value=<%= tag.id %>><%= tag.name.capitalize %></option>
-          <% end %>
-        <% end %>
-      </select>
+<select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
+  <% @tags.each do |tag| %>
+  <% if tag.id == @transaction.tag_id %>
+  <option value=<%= tag.id %> selected><%= tag.name %></option>
+  <% else %>
+  <option value=<%= tag.id %>><%= tag.name.capitalize %></option>
+  <% end %>
+  <% end %>
+</select>
 
 <input class="button-edit" type="submit" value="Edit Transaction" />
 </form>

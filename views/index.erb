@@ -1,16 +1,2 @@
-<h2>Welcome to Spending Tracker!</h2>
-<div class="transactionstable">
-<table id="transactions">
-  <tr>
-    <th>Merchant</th>
-    <th>Category</th>
-    <th>Amount</th>
-  </tr>
-<% @transactions.each do |transaction| %>
-  <tr>
-    <td><%= transaction.merchant.name %></td>
-    <td><%= transaction.tag.name %></td>
-    <td> £<%= transaction.amount %></td>
-  </tr>
-  <% end %>
-</table>
+<h2 id="h2index">Welcome to Spending Tracker!</h2>
+<p>You've already spent: £<%= @total %></p>

@@ -1,6 +1,13 @@
 DROP TABLE transactions;
 DROP TABLE merchants;
 DROP TABLE tags;
+DROP TABLE budgetsettings;
+
+CREATE TABLE budgetsettings
+(
+  id SERIAL primary key,
+  budget_limit INT
+);
 
 CREATE TABLE tags
 (
@@ -18,7 +25,7 @@ CREATE TABLE transactions
 (
   id SERIAL primary key,
   amount INT,
-  time_stamp TIMESTAMP,
+  date_stamp DATE,
   merchant_id INT REFERENCES merchants(id),
   tag_id INT REFERENCES tags(id)
 );
