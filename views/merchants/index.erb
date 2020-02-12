@@ -1,8 +1,8 @@
 <h2>Merchant Manager</h2>
 <div id="transactionsbuttons">
-    <form action="/merchants/new" method="GET">
-      <button class="button" type ="submit" style="vertical-align:middle"><span>Add new merchant </span></button>
-    </form>
+  <form action="/merchants/new" method="GET">
+    <button class="button" type ="submit" style="vertical-align:middle"><span>Add new merchant </span></button>
+  </form>
 </div>
 <table id="transactions">
   <tr>
@@ -12,19 +12,19 @@
   </tr>
   <% @merchants.each do |merchant| %>
   <tr>
-  <td>
-    <%= merchant.name %>
-  </td>
-  <td>
-    <form action="/merchants/<%= merchant.id %>/edit" method="GET">
-      <input class="button-table-edit" type="submit" value="edit" />
-    </form>
-  </td>
-  <td>
-    <form action="/merchants/<%= merchant.id %>/delete" method="POST">
-      <input class="button-table-delete" type="submit" value="delete" />
-    </form>
-  </td>
+    <td>
+      <%= merchant.name %>
+    </td>
+    <td>
+      <form action="/merchants/<%= merchant.id %>/edit" method="GET">
+        <input class="button-table-edit" type="submit" value="edit" />
+      </form>
+    </td>
+    <td>
+      <form action="/merchants/<%= merchant.id %>/delete" method="POST">
+        <input class="button-table-delete" type="submit" value="delete" />
+      </form>
+    </td>
   </tr>
   <% end %>
 </table>

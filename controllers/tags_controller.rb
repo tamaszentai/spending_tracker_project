@@ -10,7 +10,6 @@ get '/tags' do
 end
 
 get '/tags/new' do
-  @tags = Tag.all
   erb ( :"tags/new" )
 end
 

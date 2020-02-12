@@ -1,39 +1,39 @@
 <h2>Transactions</h2>
 <p>You've already spent: £<%= @total %></p>
 
-  <div id="transactionsbuttons">
-      <form action="/transactions/new" method="GET">
-        <button class="button" type ="submit" style="vertical-align:middle"><span>Add new transaction </span></button>
-      </form>
-  </div>
+<div id="transactionsbuttons">
+  <form action="/transactions/new" method="GET">
+    <button class="button" type ="submit" style="vertical-align:middle"><span>Add new transaction </span></button>
+  </form>
+</div>
 
 <div class="transactionstable">
-<table id="transactions">
-  <tr>
-    <th>Date</th>
-    <th>Merchant</th>
-    <th>Category</th>
-    <th>Amount</th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @transactions.each do |transaction| %>
-  <tr>
-    <td><%= transaction.date_stamp %></td>
-    <td><%= transaction.merchant.name %></td>
-    <td><%= transaction.tag.name %></td>
-    <td> £<%= transaction.amount %></td>
-    <td>
-      <form action="/transactions/<%= transaction.id %>/edit" method="GET">
-        <input class="button-table-edit" type="submit" value="edit" />
-      </form>
-    </td>
-    <td>
-      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-        <input class="button-table-delete" type="submit" value="delete" />
-      </form>
-    </td>
-  </tr>
-  <% end %>
-</table>
+  <table id="transactions">
+    <tr>
+      <th>Date</th>
+      <th>Merchant</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.date_stamp %></td>
+      <td><%= transaction.merchant.name %></td>
+      <td><%= transaction.tag.name %></td>
+      <td> £<%= transaction.amount %></td>
+      <td>
+        <form action="/transactions/<%= transaction.id %>/edit" method="GET">
+          <input class="button-table-edit" type="submit" value="edit" />
+        </form>
+      </td>
+      <td>
+        <form action="/transactions/<%= transaction.id %>/delete" method="POST">
+          <input class="button-table-delete" type="submit" value="delete" />
+        </form>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>

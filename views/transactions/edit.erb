@@ -1,36 +1,36 @@
 <h2>Edit Transaction</h2>
 <div class="edit-page">
-<form method="post" action="/transactions/<%= @transaction.id %>">
-<label for="amount-field">Amount:</label>
-<input
-type="text"
-name="amount"
-id="amount-field"
-value="<%= @transaction.amount %>"
-/>
+  <form method="post" action="/transactions/<%= @transaction.id %>">
+    <label for="amount-field">Amount:</label>
+    <input
+    type="text"
+    name="amount"
+    id="amount-field"
+    value="<%= @transaction.amount %>"
+    />
 
-<label for="merchant_select">Select new merchant:</label>
-<select name="merchant_id" id="merchant_select">
-  <% @merchants.each do |merchant| %>
-  <% if merchant.id == @transaction.merchant_id %>
-  <option value=<%= merchant.id %> selected><%= merchant.name %></option>
-  <% else %>
-  <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
-  <% end %>
-  <% end %>
-</select>
+    <label for="merchant_select">Select new merchant:</label>
+    <select name="merchant_id" id="merchant_select">
+      <% @merchants.each do |merchant| %>
+      <% if merchant.id == @transaction.merchant_id %>
+      <option value=<%= merchant.id %> selected><%= merchant.name %></option>
+      <% else %>
+      <option value=<%= merchant.id %>><%= merchant.name.capitalize %></option>
+      <% end %>
+      <% end %>
+    </select>
 
-<label for="tag_select">Select new category:</label>
-<select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
-  <% @tags.each do |tag| %>
-  <% if tag.id == @transaction.tag_id %>
-  <option value=<%= tag.id %> selected><%= tag.name %></option>
-  <% else %>
-  <option value=<%= tag.id %>><%= tag.name.capitalize %></option>
-  <% end %>
-  <% end %>
-</select>
+    <label for="tag_select">Select new category:</label>
+    <select name="tag_id" id="tag_select" selected="<%= @transaction.tag_id  %>">
+      <% @tags.each do |tag| %>
+      <% if tag.id == @transaction.tag_id %>
+      <option value=<%= tag.id %> selected><%= tag.name %></option>
+      <% else %>
+      <option value=<%= tag.id %>><%= tag.name.capitalize %></option>
+      <% end %>
+      <% end %>
+    </select>
 
-<input class="button-edit" type="submit" value="Edit Transaction" />
-</form>
+    <input class="button-edit" type="submit" value="Edit Transaction" />
+  </form>
 </div>

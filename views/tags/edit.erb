@@ -1,13 +1,13 @@
 <h2>Edit Category</h2>
 <div class="edit-page">
-<form method="post" action="/tags/<%= @tag.id %>">
-<label for="name-field">Category name:</label>
-<input
-type="text"
-name="name"
-id="name-field"
-value="<%= @tag.name %>"
-/>
-<input class="button-edit" type='submit' value="Edit Tag Name">
-</form>
+  <form method="post" action="/tags/<%= @tag.id %>">
+    <label for="name-field">Category name:</label>
+    <input
+    type="text"
+    name="name"
+    id="name-field"
+    value="<%= @tag.name %>"
+    />
+    <input class="button-edit" type='submit' value="Edit Tag Name">
+  </form>
 </div>
