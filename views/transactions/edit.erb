@@ -1,3 +1,5 @@
+<h2>Edit Transaction</h2>
+<div class="edit-page">
 <form method="post" action="/transactions/<%= @transaction.id %>">
 <label for="amount-field">Amount:</label>
 <input
@@ -31,3 +33,4 @@ value="<%= @transaction.amount %>"
 
 <input class="button-edit" type="submit" value="Edit Transaction" />
 </form>
+</div>

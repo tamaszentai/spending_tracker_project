@@ -42,8 +42,8 @@ h2 {
 }
 
 p {
-  font-size: 2em;
   text-align: center;
+  font-size: 2em;
 }
 
 nav {
@@ -261,6 +261,12 @@ width: auto;
 }
 
 .new-editbox {
+  display: block;
+  text-align: center;
+}
+
+.edit-page {
+  margin-top: 8em;
   display: block;
   text-align: center;
 }
