@@ -105,6 +105,7 @@ class Transaction
   end
 
   def self.sort_by_date(array_of_transactions)
-    return array_of_transactions.sort_by {|transaction| transaction.date_stamp}
+    sorted_array = array_of_transactions.sort_by {|transaction| transaction.date_stamp}
+    return sorted_array.reverse
   end
 end

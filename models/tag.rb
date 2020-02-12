@@ -39,7 +39,7 @@ class Tag
     values = [@id]
     SqlRunner.run(sql, values)
   end
-  
+
   def self.all()
     sql = "SELECT * FROM tags"
     tag_data = SqlRunner.run(sql)
